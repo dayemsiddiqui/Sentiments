@@ -1,13 +1,47 @@
-import numpy
+#==============================================================
+#                       LIBRARY IMPORT
+#==============================================================
+import numpy as np
 import nltk
+#==============================================================
 
-fileData = open("positiveDictionary.csv","r")
-positiveCharge = fileData.read().split(",")
-fileData.close()
 
-fileData = open("negativeDictionary.csv","r")
-negativeCharge = fileData.read().split(",")
-fileData.close()
+#==============================================================
+#                       FUNCTION DEFINITIONS
+#==============================================================
+
+
+def readDictionary(x,y):
+    fileData = open(x,"r")
+    positive = fileData.read().split(",")
+    fileData.close()
+    positive = np.array(positive)
+    fileData = open(y,"r")
+    negative = fileData.read().split(",")
+    negative = np.array(negative)
+    fileData.close()
+    return (positive, negative)
+
+
+def scoreAssigner(x, textTokens):
+    score = 0
+    for word in textTokens:
+        for keyword in x:
+            if word == keyword:
+                print keyword
+                score = score + 1
+                break
+
+    return score
+
+#==============================================================
+
+
+
+
+positiveCharge = np.array([])
+positiveCharge, negativeCharge = readDictionary("positiveDictionary.csv","negativeDictionary.csv")
+
 temp = []
 
 text = raw_input("Write Your Text To Be Analysed: ")
@@ -24,16 +58,6 @@ positiveScore = 0;
 negativeScore = 0;
 
 
-def scoreAssigner(x, textTokens):
-    score = 0
-    for word in textTokens:
-        for keyword in x:
-            if word == keyword:
-                print keyword
-                score = score + 1
-                break
-
-    return score
 
 positiveScore = scoreAssigner(positiveCharge, tokens)
 negativeScore = scoreAssigner(negativeCharge, tokens)
