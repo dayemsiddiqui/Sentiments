@@ -26,7 +26,7 @@ try:
     paragraphs = soup.find_all("p")
 
     # Joining all the <p></p> tags in one string
-    text = " \n\n".join([ paragraph.text.encode('utf-8','ignore').strip() for paragraph in paragraphs])
+    text = " \n\n".join([ paragraph.text.encode('ascii','ignore').strip() for paragraph in paragraphs])
 
     # Printing the Result
     print text
