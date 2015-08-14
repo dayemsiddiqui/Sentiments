@@ -82,14 +82,7 @@ def eliminate(a,b):
 positiveDictionary = {}
 negativeDictionary = {}
 
-
-
-
-
-random = raw_input("Write the piece of text you want to use for training: ")
-
-
-
+random = raw_input('Enter text to train: ')
 
 
 
