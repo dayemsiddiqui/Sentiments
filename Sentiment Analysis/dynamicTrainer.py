@@ -86,7 +86,7 @@ negativeDictionary = {}
 
 
 
-
+random = raw_input("Write the piece of text you want to use for training: ")
 
 
 
