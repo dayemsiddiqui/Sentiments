@@ -28,7 +28,7 @@ def scoreAssigner(x, textTokens):
     for word in textTokens:
         for keyword in x:
             if word == keyword:
-                print keyword
+                #print keyword
                 score = score + 1
                 break
 
@@ -41,6 +41,7 @@ def scoreAssigner(x, textTokens):
 
 positiveCharge = np.array([])
 positiveCharge, negativeCharge = readDictionary("positiveDictionary.csv","negativeDictionary.csv")
+p, n = readDictionary("positiveDynamic.csv","negativeDynamic.csv")
 
 temp = []
 
@@ -59,21 +60,21 @@ negativeScore = 0;
 
 
 
-positiveScore = scoreAssigner(positiveCharge, tokens)
-negativeScore = scoreAssigner(negativeCharge, tokens)
+positiveScore = scoreAssigner(positiveCharge, tokens) + scoreAssigner(p, tokens)/2
+negativeScore = scoreAssigner(negativeCharge, tokens) + scoreAssigner(n, tokens)/2
 
-print "========================================="
-print "                 REPORT                  "
-print "========================================="
-print '''
-      POSITIVE SCORE:  
-      ''' + str(positiveScore)
-print '''
-      NEGATIVE SCORE:  
-      ''' + str(negativeScore)
-print "========================================="
-print "========================================="
-print "========================================="
+##print "========================================="
+##print "                 REPORT                  "
+##print "========================================="
+##print '''
+##      POSITIVE SCORE:  
+##      ''' + str(positiveScore)
+##print '''
+##      NEGATIVE SCORE:  
+##      ''' + str(negativeScore)
+##print "========================================="
+##print "========================================="
+##print "========================================="
 if(positiveScore > negativeScore):
     print "This is a postive sentence"
 if(positiveScore < negativeScore):
