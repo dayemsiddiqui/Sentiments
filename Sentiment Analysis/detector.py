@@ -54,7 +54,7 @@ negativeCharge = temp
 ##print positiveCharge
 
 tokens =  nltk.word_tokenize(text.upper())
-print tokens
+#print tokens
 positiveScore = 0;
 negativeScore = 0;
 
