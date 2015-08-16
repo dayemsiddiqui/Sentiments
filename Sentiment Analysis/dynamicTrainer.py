@@ -99,12 +99,18 @@ positiveDictionary = dictReader("positiveDynamicData.csv")
 
 negativeDictionary = dictReader("negativeDynamicData.csv")
 
-random = "I like mangoes. I hate apples."
+random = raw_input("Type the file name you want to read: ")
+
+print "Opening Reviews"
+f = open(random)
+print "Reading Reviews"
+random = f.read()
+random = random.decode('utf-8')
+print "Tokenizing Reviews"
+some = sent_tokenize(random)
 
 annotedSentencePositive = []
 annotedSentenceNegative = []
-
-some = sent_tokenize(random)
 
 for x in some:
     print x
@@ -121,6 +127,8 @@ for x in some:
         putIn(finalWords, negativeDictionary)
         print ""
         print "====================="
+    if y == "3":
+        break;
 
 
 

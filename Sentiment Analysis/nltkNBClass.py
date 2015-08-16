@@ -20,12 +20,14 @@ poscutoff = len(posfeats)*3/4
  
 trainfeats = negfeats[:negcutoff] + posfeats[:poscutoff]
 testfeats = negfeats[negcutoff:] + posfeats[poscutoff:]
-print 'accuracy:', nltk.classify.util.accuracy(classifier, testfeats)
+
 #classifier.show_most_informative_features()
 
 print 'Almost Ready Please Wait...' 
- 
+
+
 classifier = NaiveBayesClassifier.train(trainfeats)
+print 'accuracy:', nltk.classify.util.accuracy(classifier, testfeats)
 
 while True:
     text = raw_input("Type the text you want to check: ")
