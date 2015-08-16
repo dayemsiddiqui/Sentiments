@@ -1,0 +1,3 @@
+-How to deal with negations
+-Get A Bunch Of positive and negative articles and plot their diffferent features and study them for effective sentimental analysis
+-Frequency Matching algorithm
